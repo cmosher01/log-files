@@ -4,7 +4,6 @@ Copyright © 2019, Christopher Alan Mosher, Shelton, Connecticut, USA, <cmosher0
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CVSSQ2BWDCKQ2)
 [![License](https://img.shields.io/github/license/cmosher01/log-files.svg)](https://www.gnu.org/licenses/gpl.html)
-[![Build Status](https://travis-ci.com/cmosher01/log-files.svg?branch=master)](https://travis-ci.com/cmosher01/log-files)
 
 Java library to get a cross-platform log file.
 
@@ -12,12 +11,11 @@ Java library to get a cross-platform log file.
 
 ```groovy
 repositories {
-    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    implementation group: 'nu.mine.mosher.io', name: 'log-files', version: 'latest.integration'
+    implementation group: 'nu.mine.mosher.io', name: 'log-files', version: 'latest.release'
 }
 ```
 
@@ -37,12 +35,11 @@ public class FooBar {
 
 ```groovy
 repositories {
-    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    implementation group: 'nu.mine.mosher.io', name: 'log-files', version: 'latest.integration'
+    implementation group: 'nu.mine.mosher.io', name: 'log-files', version: 'latest.release'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: 'latest.integration'
     runtimeOnly group: 'org.slf4j', name: 'slf4j-simple', version: 'latest.integration'
 }
