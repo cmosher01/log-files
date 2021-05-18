@@ -1,8 +1,0 @@
-repositories {
-    jcenter()
-    mavenCentral()
-}
-
-dependencies {
-    implementation group: 'net.java.dev.jna', name: 'jna-platform', version: 'latest.release'
-}

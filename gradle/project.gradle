@@ -1,7 +1,0 @@
-apply plugin: JavaLibraryPlugin
-
-group = 'nu.mine.mosher.io'
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-}
