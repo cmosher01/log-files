@@ -1,6 +1,5 @@
 plugins {
     id 'java-library'
-    id 'signing'
     id 'maven-publish'
 }
 
@@ -16,8 +15,6 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of 11
     }
-    withJavadocJar()
-    withSourcesJar()
 }
 
 publishing {
@@ -55,18 +52,13 @@ publishing {
 }
 tasks.assemble.dependsOn tasks.generatePomFileForMavenPublication
 
-signing {
-    sign publishing.publications.maven
-}
-tasks.assemble.dependsOn tasks.signMavenPublication
-
 publishing {
     repositories {
         maven {
-            url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            url 'https://maven.pkg.github.com/cmosher01/log-files'
             credentials {
-                username = ossrhUsername
-                password = ossrhPassword
+                username = System.getenv('GITHUB_ACTOR') ?: 'restricted'
+                password = System.getenv('GITHUB_TOKEN') ?: 'restricted'
             }
         }
     }
@@ -74,4 +66,4 @@ publishing {
 
 group = 'nu.mine.mosher.io'
 
-version = '1.0.1'
+version = '1.0.2'

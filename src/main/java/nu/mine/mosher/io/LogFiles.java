@@ -18,10 +18,10 @@ public class LogFiles {
      * @return log File (with mkdirs already called)
      */
     public static File getLogFileOf(final Class cls) {
-        final String app = cls.getName();
+        final var app = cls.getName();
 
         final Path dirLogs;
-        final Optional<String> freedesktopCache = Optional.ofNullable(System.getenv("XDG_CACHE_HOME"));
+        final var freedesktopCache = Optional.ofNullable(System.getenv("XDG_CACHE_HOME"));
         if (freedesktopCache.isPresent()) {
             dirLogs = Paths.get(freedesktopCache.get()).resolve(app).resolve("logs");
         } else if (os().startsWith("win")) {
@@ -32,8 +32,8 @@ public class LogFiles {
             dirLogs = home().resolve(".cache").resolve(app).resolve("logs");
         }
 
-        final String nameLog = low(cls.getSimpleName())+".log";
-        final File fileLog = dirLogs.resolve(nameLog).toFile();
+        final var nameLog = low(cls.getSimpleName())+".log";
+        final var fileLog = dirLogs.resolve(nameLog).toFile();
         fileLog.getParentFile().mkdirs();
         return fileLog;
     }
@@ -63,7 +63,7 @@ public class LogFiles {
      * @return user home directory
      */
     private static Path home() {
-        final String def = "./";
+        final var def = "./";
         try {
             return Paths.get(System.getProperty("user.home", def));
         } catch (final Throwable e) {
@@ -77,7 +77,7 @@ public class LogFiles {
      * @return lowercase OS name
      */
     private static String os() {
-        final String def = "*ux";
+        final var def = "*ux";
         try {
             return System.getProperty("os.name", def).toLowerCase();
         } catch (final Throwable e) {
@@ -94,7 +94,7 @@ public class LogFiles {
      * @return lower-case-hypen-name
      */
     private static String low(String s) {
-        final Matcher matcher = CAMEL.matcher(s);
+        final var matcher = CAMEL.matcher(s);
         s = matcher.replaceAll("-");
         s = s.toLowerCase();
         if (s.startsWith("-")) {

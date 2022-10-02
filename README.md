@@ -12,6 +12,9 @@ Java library to get a cross-platform log file.
 ```groovy
 repositories {
     mavenCentral()
+    maven {
+        url = uri('https://public:\u0067hp_fya6Kseu3XOBMg2icbg7f1LP6ZFYjj35v4Zj@maven.pkg.github.com/cmosher01/*')
+    }
 }
 
 dependencies {
@@ -34,10 +37,6 @@ public class FooBar {
 # example with slf4j-simple
 
 ```groovy
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation group: 'nu.mine.mosher.io', name: 'log-files', version: 'latest.release'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: 'latest.integration'
